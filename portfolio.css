@@ -1,0 +1,416 @@
+/* A pile of variables so I can adjust settings up top. */
+:root {
+    /* Primary Colors */
+    --bg-primary: #fff;
+    --fg-primary: #000;
+    --fg-primary-link: blue;
+    --bg-primary-btn-link: #07f;
+    --fg-primary-btn-link: #fff;
+    --bg-primary-btn-hover: #09f;
+    --fg-primary-btn-hover: #eee;
+    --bg-primary-widget: #93bad2;
+    --fg-primary-widget: #000;
+
+    /* Secondary Mode Colors */
+    --bg-secondary: #def;
+    --fg-secondary: #000;
+    --fg-secondary-link: purple;
+    --bg-secondary-btn-link: #49c;
+    --fg-secondary-btn-link: #fff;
+    --bg-secondary-btn-hover: #5ad;
+    --fg-secondary-btn-hover: #fff;
+    --bg-secondary-widget: #93bad2;
+    --fg-secondary-widget: #000;
+
+    --bg-header: #281E5D;
+    --fg-header: #fff;
+}
+
+/* Setting fonts */
+@font-face {
+    font-family: 'Platypi';
+    src: url('media/Platypi-Bold.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "Nunito";
+    src: url("media/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "FrancoisOne";
+    src: url("media/FrancoisOne-Regular.ttf") format("truetype");
+}
+
+html {
+    font-size: 16px;
+    font-family: "Nunito";
+    background-color: var(--bg-primary);
+    color: var(--fg-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Platypi";
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    max-height: 8rem;
+    background-color: var(--bg-header);
+    color: var(--fg-header);
+    box-shadow: 0 0rem 2rem black;
+    z-index: 99;
+}
+
+img.profile-pic {
+    border-radius:50rem;
+    border: 1rem solid rgba(40, 50, 80, 1);
+    box-shadow: 10px 10px 10px;
+    width: 20rem;
+    z-index: 2;
+    animation: gentlefloat 1s infinite ease-in-out alternate;
+}
+
+header img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+header nav {
+    flex: 2;
+    align-content: center;
+    text-align: right;
+}
+
+header > nav > ul {
+    display: block;
+    list-style: none;
+    flex:1;
+    align-self: center;
+    justify-self: right;
+}
+header > nav > ul > li {
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+header > nav > ul > li > a > img {
+   max-height: 2.5rem; 
+}
+
+header h1 {
+    flex: 4;
+    align-content: center;
+}
+
+header div {
+    flex: 0 0 6rem;
+}
+
+header, header img {
+    transition: max-height 0.3s ease-in-out;
+}
+
+footer {
+    display: flex;
+    max-height: 4rem;
+    background-color: var(--bg-secondary);
+    color: var(--fg-secondary);
+}
+
+footer div:has(a) {
+    flex: 0 0 3rem;
+}
+
+footer img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+footer p {
+    flex: 1;
+    align-self: center;
+    text-align: center;
+    margin-left: -3rem;
+}
+
+section.hero {
+    padding-block: 150px;
+    background: url("media/hero-bg-1.webp");
+    box-shadow: inset 0 0 50rem #000;
+    animation: scrolldown 5s infinite linear;
+}
+
+section.hero div {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.hero div h2 {
+    background-color: rgba(40, 50, 80, 1);
+    color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-block: 2rem;
+    margin-right:-4rem;
+    border: 1rem solid rgba(40, 50, 80, 1);
+    border-radius: 100px 0 0 100px;
+    position:relative;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+    display: block;
+    animation: gentlefloat 1s infinite ease-in-out alternate;
+}
+
+section.hero div h3 {
+    background-color: rgba(40, 50, 80, 1);
+    color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-block: 2rem;
+    border: 1rem solid rgba(40, 50, 80, 1);
+    border-radius: 0 100px 100px 0;
+    position:relative;
+    margin-left: -8em;
+    left: 4em;
+    top: 0em;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+    display: block;
+    animation: gentlefloat 1s infinite ease-in-out alternate;
+}
+
+
+
+@media (max-width: 1140px) {
+    section.hero div h2, section.hero div h3 {
+        font-size: 16pt;
+        border-radius: 0;
+        text-align: center;
+        padding-inline: 0;
+        width: 100%;
+        border: 0 solid rgba(40, 50, 80, 1);
+    }
+    section.hero div h2 {
+        top: 200px;
+        padding-bottom:3em;
+    }
+    section.hero div h3 {
+        margin-left: 0;
+        padding-block: 0;
+        margin-top: -4.5em;
+        left: 0;
+        background: unset;
+    }
+    section.hero div {
+        display: unset;
+    }
+    img.profile-pic {
+        display: block;
+        margin-left:auto;
+        margin-right: auto;
+        position: relative;
+        top: -200px;
+    }
+    header > nav > ul > li > a > img {
+        max-height: 2rem; 
+    }
+}
+
+@keyframes gentlefloat {
+    from {
+        transform: translate(0px, -0.5em);
+    }
+    to {
+        transform: translate(0px, 0.5em);
+    }
+    
+}
+
+@keyframes scrolldown {
+    0% {
+        background-color: #663399;
+        /* background-position: 0 0; */
+    }
+    30% {
+        background-color: #333399;
+        /* background-position: -30px 30px; */
+    }
+    70% {
+        background-color: #333399;
+        /* background-position: -70px 70px; */
+    }
+    100% {
+        background-color: #663399;
+        /* background-position: -100px 100px; */
+    }
+}
+
+/* Alternative two-column coloration */
+section:has(article.two-col):nth-child(even) {
+    background-color: var(--bg-secondary);
+    color: var(--fg-secondary);
+    flex-direction: row-reverse;
+}
+
+article.two-col {
+    display: flex;
+    flex-direction: row;
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
+    padding-block: 10rem;
+    padding-inline: 3rem;
+}
+
+article.two-col > div:not(:has(> img)) {
+    flex: 7;
+}
+
+article.two-col > div:has(> img) {
+    flex: 6;
+}
+
+article.two-col > div {
+    align-content: center;
+}
+
+ul.l-hori li {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: var(--bg-primary-widget);
+    color: var(--fg-primary-widget);
+    border-radius: 1rem;
+}
+
+section:has(article.two-col):nth-child(even) ul.l-hori li {
+    background-color: var(--bg-secondary-widget);
+    color: var(--fg-secondary-widget);
+}
+
+ul.skills.l-hori {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+}
+
+ul.skills {
+    list-style: none;
+}
+
+ul.skills li::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("media/star.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+}
+
+article.two-col > div > h2 {
+    margin-bottom: 1.5em;
+    font-size: 2rem;
+}
+
+article.two-col > div > p { 
+    margin-bottom: 1rem;
+}
+
+section:has(article.two-col):nth-child(odd) > article.two-col > div > :not(a) {
+    padding-left: 4rem;
+}
+
+section:has(article.two-col):nth-child(odd) > article.two-col > div > a {
+    margin-left: 4rem;
+}
+
+section:has(article.two-col):nth-child(even) > article.two-col > div > :not(a) {
+    padding-right: 4rem;
+}
+
+article.two-col > div > img {
+    max-width: 100%;
+}
+
+section:has(article.two-col):nth-child(even) > article.two-col {
+    flex-direction: row-reverse;
+}
+
+a {
+    color: var(--fg-primary-link);
+}
+
+a.btn {
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: "FrancoisOne";
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    background-color: var(--bg-primary-btn-link);
+    color: var(--fg-primary-btn-link);
+    transition: all 0.3s ease-in-out;
+}
+
+a.btn:hover {
+    background-color: var(--bg-primary-btn-hover);
+    color: var(--fg-primary-btn-hover);
+}
+
+section:has(article.two-col):nth-child(even) a {
+    color: var(--fg-secondary-link)
+}
+
+section:has(article.two-col):nth-child(even) a.btn {
+    background-color: var(--bg-secondary-btn-link);
+    color: var(--fg-secondary-btn-link);
+}
+
+section:has(article.two-col):nth-child(even) a.btn:hover {
+    background-color: var(--bg-secondary-btn-hover);
+    color: var(--fg-secondary-btn-hover);
+}
+
+.c-invert {
+    --webkit-filter: invert(1);
+    filter: invert(1) brightness(3);
+}
+
+header.collapse {
+    max-height: 4rem;
+}
+
+@media (max-width: 1140px) {
+    html {
+        font-size: 12px;
+    }
+    header {
+        max-height: 4rem;
+    }
+    article.two-col {
+        flex-direction: column;
+    }
+    section:has(article.two-col):nth-child(even) > article.two-col {
+        flex-direction: column;
+    }
+    section:has(article.two-col):nth-child(even) > article.two-col > div > * {
+        margin-left: 0;
+    }
+}

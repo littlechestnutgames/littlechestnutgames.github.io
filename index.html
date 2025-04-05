@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" charset="utf-8">
+    <head>
+        <title>Adrien Howard - Portfolio</title>
+        <link rel="stylesheet" href="portfolio.css">
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="/">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="media/logo_128.png">
+                        <source media="(min-width: 768px) and (max-width: 1024px)" srcset="media/logo_256.png">
+                        <img src="media/logo_512.png" alt="LittleChestnut Games Logo">
+                    </picture>
+                </a>
+            </div>
+            <h1>Portfolio</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://www.github.com/littlechestnutgames/" target="_blank">
+                            <img src="media/github-mark.svg" alt="LittleChestnutGames on Github" class="c-invert"></img>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/adrienhoward/" target="_blank">
+                            <img src="media/InBug-Black.png" alt="Adrien Howard on LinkedIn" class="c-invert"></img>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="hero bg-cover">
+                <div>
+                    <h2>Adrien Howard</h2>
+                    <img src="media/profile.jpeg" alt="A photo of Adrien Howard" class="profile-pic">
+                    <h3>Marketing Solutions Architect</h3>
+                </div>
+            </section>
+            <section>
+                <article class="two-col">
+                    <div>
+                        <h2>Dockerized Development Environment</h2>
+                        <ul class="skills l-hori">
+                            <li>Tool Developer</li>
+                            <li>Shell scripting</li>
+                            <li>Containerization</li>
+                        </ul>
+                        <p>
+                            When our chef and vagrant development environment wouldn't run
+                            on newer M1 architecture macs, I recreated our whole stack
+                            using Docker containers and orchestrated them using docker
+                            compose and zsh.
+                        </p>
+                        <p>
+                            From within the command line interface, it is possible to bring
+                            up, put down, and rebuild any combination of containers within
+                            the project. Additionally many support commands were built in to
+                            aide the developer with common tasks, such as syncing databases
+                            across environments, easy terminal access inside containers, and
+                            ad-hoc queries on databases or redis instances.
+                        </p>
+                        <!-- <a href="dockerized-development-environment.html" class="btn">View Details</a> -->
+                    </div>
+                    <div>
+                        <img src="media/mktg-docker-1.png" alt="Terminal showing custom script help screen" loading="lazy">
+                    </div>
+                </article>
+            </section>
+            <section>
+                <article class="two-col">
+                    <div>
+                        <h2>eText Filename Enforcer</h2>
+                        <ul class="skills l-hori">
+                            <li>Swift Developer</li>
+                            <li>Native App Development</li>
+                            <li>Problem Identification & Solving</li>
+                        </ul>
+                        <p>
+                        A filename standardization tool I designed to streamline and
+                        automate the process of correcting and organizing digital
+                        course filenames. It helps ensure consistent naming
+                        conventions and prepares files for efficient upload, saving
+                        time and reducing errors in customer facing applications.
+                        </p>
+                        <!-- <a href="etext-filename-enforcer.html" class="btn">View Details</a> -->
+                    </div>
+                    <div>
+                        <img src="media/etext-filename-enforcer-install.png" alt="Image of installation screen of eText Filename Enforcer" loading="lazy">
+                    </div>
+                </article>
+            </section>
+            <section>
+                <article class="two-col">
+                    <div>
+                        <h2>Security Council Member</h2>
+                        <ul class="skills l-hori">
+                            <li>Security Analyst (Marketing)</li>
+                            <li>Project Management</li>
+                            <li>Documentation</li>
+                        </ul>
+                        <p>
+                            In July 2024, I joined Carnegie Learning's internal security
+                            council as the marketing department seat. Together we
+                            discuss problems and coordinate efforts to continually improve
+                            the security of our platforms, processes, and messaging.
+                        </p>
+                        <p>
+                            I recently put together the company's security practices page.
+                        </p>
+                        <!-- <a href="security-council.html" class="btn">View Details</a> -->
+                    </div>
+                    <div>
+                        <img src="media/lock-icon.webp" alt="A 2d render of a padlock" loading="lazy">
+                    </div>
+                </article>
+            </section>
+            <section>
+                <article class="two-col">
+                    <div>
+                        <h2>Prospect Review Microsites</h2>
+                        <ul class="skills l-hori">
+                            <li>HubSpot Developer</li>
+                            <li>Module Design</li>
+                            <li>Automation</li>
+                        </ul>
+                        <p>
+                            I was instrumental to bringing our prospective customers a new,
+                            exciting product review experience. The new experience, created in
+                            <a href="https://www.hubspot.com/" target="_blank">HubSpot</a>,
+                            required the creation of custom modules that show different state in
+                            response to the user's contact record.
+                        </p>
+                        <p>
+                            There has been a lot of automation setup surrounding these new product
+                            pages, such as verification checks that allow certain registrants to
+                            skip the vetting queue, user provisioning, process monitoring, and alerts.
+                        </p>
+                        <!-- <a href="digital-review-experience.html" class="btn">View Details</a> -->
+                    </div>
+                    <div>
+                        <img src="media/digital-review-experience-1.png" alt="Image of a webpage showing several locked sections" loading="lazy">
+                    </div>
+                </article>
+            </section>
+            <section>
+                <article class="two-col">
+                    <div>
+                        <h2>Education Podcast Website</h2>
+                        <ul class="skills l-hori">
+                            <li>HubSpot Developer</li>
+                            <li>Custom Module Development</li>
+                            <li>HubL Templating</li>
+                        </ul>
+                        <p>
+                           We created a podcast to show the journey of a teacher
+                           though the ups and downs of her first year. The series
+                           is still on-going and is relatively popular among teachers.
+                        </p>
+                        <p>
+                           This was another site designed in HubSpot. My focus
+                           on this project was custom module and template development.
+                           I also performed all the necessary configuration in AWS
+                           Route53, CloudFront, and HubSpot itself to support the site.
+                        </p>
+                        <!-- <a href="podcast.html" class="btn">View Details</a> -->
+                    </div>
+                    <div>
+                        <img src="media/year-one-1.png" alt="Image of a podcast called Year One" loading="lazy">
+                    </div>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <div>
+                <a href="/">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="media/logo_128.png">
+                        <source media="(min-width: 768px) and (max-width: 1024px)" srcset="media/logo_256.png">
+                        <img src="media/logo_512.png" alt="LittleChestnutGames Logo">
+                    </picture>
+                </a>
+            </div>
+            <p>Copyright ©2025 Adrien Howard</p>
+        </footer>
+        <script src="index.js" defer></script>
+    </body>
+</html>
