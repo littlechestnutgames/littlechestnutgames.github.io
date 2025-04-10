@@ -172,6 +172,43 @@
                     </div>
                 </article>
             </section>
+            <section>
+                <article class="two-col">
+                    <div id="egg-container"></div>
+                    <div>
+                        <h2>What about the eggs?</h2>
+                        <ul class="skills l-hori">
+                            <li>Fullstack</li>
+                            <li>API development</li>
+                            <li>JavaScript</li>
+                        </ul>
+                        <p>
+                            These eggs were developed as something fun and relevant to the
+                            to software engineering. I have setup a database to track egg
+                            prices at a local grocery store, a job to consume grocery store
+                            API data daily, and make use of an API endpoint to consume that
+                            data and display it as these eggs here.
+                        </p>
+                        <p>
+                            The backend was written in NodeJS on HubSpot's serverless platform
+                            and the frontend was written in JavaScript, CSS, and HTML. Each
+                            egg holds the date that price was scraped, the price it was, and
+                            the color of the egg indicates whether the price increased from
+                            the last egg (red), remained the same price (white), or the went
+                            down (green).
+                        </p>
+                    </div>
+                </article>
+            </section>
+            <!-- <section>
+                <div>
+                    <form id="ai-form">
+                        <input type="text" placeholder="Ask a question.">
+                        <button>🔎</button>
+                        <span><span id="tokens">7000</span> / 7000 tokens</span>
+                    </form>
+                </div>
+            </section> -->
         </main>
         <footer>
             <div>
@@ -185,6 +222,7 @@
             </div>
             <p>Copyright ©2025 Adrien Howard</p>
         </footer>
+        <script src="https://unpkg.com/gpt-tokenizer"></script>
         <script src="index.js" defer></script>
     </body>
 </html>
