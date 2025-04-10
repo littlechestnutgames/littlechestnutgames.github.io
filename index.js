@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             let dataset = data.results;
-            dataset = dataset.sort((a, b) => a.values.datetime > b.values.datetime);
+            dataset = dataset.sort((a, b) => a.values.datetime - b.values.datetime);
             let lastEgg = null;
             while(dataset.length > 12) {
                 lastEgg = dataset.shift().values;
