@@ -205,7 +205,7 @@ section.hero div h3 {
         border: 0 solid rgba(40, 50, 80, 1);
     }
     section.hero div h2 {
-        top: 200px;
+        top: 320px;
         padding-bottom:3em;
     }
     section.hero div h3 {
@@ -226,7 +226,18 @@ section.hero div h3 {
         top: -200px;
     }
     header > nav > ul > li > a > img {
-        max-height: 2rem; 
+        max-height: 1.5rem; 
+    }
+}
+@media(max-width: 768px) {
+    ul.l-hori li {
+        display: list-item !important;
+        font-size: 16px;
+        background-color: transparent !important;
+        color: var(--fg-primary);
+        padding: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
     }
 }
 
@@ -295,6 +306,7 @@ ul.l-hori li {
     background-color: var(--bg-primary-widget);
     color: var(--fg-primary-widget);
     border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
 }
 
 section:has(article.two-col):nth-child(even) ul.l-hori li {
@@ -399,10 +411,14 @@ header.collapse {
 
 @media (max-width: 1140px) {
     html {
-        font-size: 12px;
+        font-size: 18px;
     }
     header {
         max-height: 4rem;
+    }
+    article.two-col > div > h2 {
+        font-size:20px;
+        padding-bottom: 1em;
     }
     article.two-col {
         flex-direction: column;
@@ -410,8 +426,11 @@ header.collapse {
     section:has(article.two-col):nth-child(even) > article.two-col {
         flex-direction: column;
     }
+    section:has(article.two-col):nth-child(2n+1) > article.two-col > div > :not(a),
     section:has(article.two-col):nth-child(even) > article.two-col > div > * {
         margin-left: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
