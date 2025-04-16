@@ -1,5 +1,5 @@
 class LCGLLM extends HTMLElement {
-    schemaVersion = 2;
+    schemaVersion = 1;
 
     constructor() {
         super();
@@ -248,7 +248,7 @@ class LCGLLM extends HTMLElement {
         }
     }
 
-    async connectedCallback() {
+    connectedCallback() {
         // Setup our shadow DOM.
         const shadow = this.attachShadow({mode: "open"});
 
@@ -272,16 +272,6 @@ class LCGLLM extends HTMLElement {
         newButton.addEventListener("click", this.openModal);
         sideBar.appendChild(newButton);
 
-        // Conversations list.
-        const conversationsList = await this.getConversationsListFromIndexedDB();
-        for (const conversationItem of conversationsList) {
-            const conversationElement = document.createElement("div");
-            conversationElement.classList.add("conversation-item");
-            conversationElement.dataset.uuid = conversationItem.uuid;
-            conversationElement.dataset.model = conversationItem.model;
-            conversationElement.innerText = conversationItem.title;
-        }
-
         // New Conversation Modal.
         const newConversationModal = document.createElement("div");
         newConversationModal.dataset.id = "new-conversation-modal";
@@ -291,7 +281,7 @@ class LCGLLM extends HTMLElement {
         // The close button for the modal.
         const closeNewConversationModalButton = document.createElement("button");
         closeNewConversationModalButton.innerText = "X";
-        closeNewConversationModalButton.addEventListener("click", this.closeModals);
+        closeNewConversationModalButton.addEventListener("click", this.closeModals());
         newConversationModal.appendChild(closeNewConversationModalButton);
 
         // Setup the model options on new conversation modal.
@@ -299,19 +289,29 @@ class LCGLLM extends HTMLElement {
         const modelNone = document.createElement("option");
         modelNone.innerText = "Select a model";
         modelSelect.appendChild(modelNone);
-        const results = await this.getModels();
-        for (const model of results) {
-            const modelOption = document.createElement("option");
-            const keys = Object.keys(model);
-            for (const key of keys) {
-                modelOption.dataset[key] = model[key];
+        this.getModels().then(results => {
+            for (const model of results) {
+                const modelOption = document.createElement("option");
+                const keys = Object.keys(model);
+                for (const key of keys) {
+                    modelOption.dataset[key] = model[key];
+                }
+                modelOption.innerText = model.id;
+                modelOption.value = model.id;
+                modelSelect.appendChild(modelOption);
             }
-            modelOption.innerText = model.id;
-            modelOption.value = model.id;
-            modelSelect.appendChild(modelOption);
-        }
+        });
         newConversationModal.appendChild(modelSelect);
 
+        this.getConversationsListFromIndexedDB().then((conversationsList) => {
+            for (const conversationItem of conversationsList) {
+                const conversationElement = document.createElement("div");
+                conversationElement.classList.add("conversation-item");
+                conversationElement.dataset.uuid = conversationItem.uuid;
+                conversationElement.dataset.model = conversationItem.model;
+                conversationElement.innerText = conversationItem.title;
+            }
+        });
         shadow.appendChild(newConversationModal);
         shadow.appendChild(container);
     }
