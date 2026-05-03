@@ -237,14 +237,14 @@ class LCGLLM extends HTMLElement {
     }
 
     openModal(event) {
-        const modal = this.querySelector(`div.new-conversation-modal[data-id=${event.target.dataset.target}]`);
+        const modal = this.shadowRoot.querySelector(`div[data-id=${event.target.dataset.target}]`);
         modal.classList.toggle("hidden", false);
     }
 
     closeModals() {
-        const modals = this.querySelectorAll("div.modal:not(.hidden)");
+        const modals = this.shadowRoot.querySelectorAll("div.modal:not(.hidden)");
         for (let modal of modals) {
-            model.classList.toggle("hidden", true);
+            modal.classList.toggle("hidden", true);
         }
     }
 
@@ -262,14 +262,27 @@ class LCGLLM extends HTMLElement {
         const container = document.createElement("div");
         const sideBar = document.createElement("div");
         const chatWindow = document.createElement("div");
+        chatWindow.id = "chat-window";
         container.appendChild(sideBar);
         container.appendChild(chatWindow);
+
+        // Where the actual chat messages go.
+        const historyWindow = document.createElement("ul");
+        chatWindow.appendChild(historyWindow);
+
+        // The place where the user puts their input.
+        const inputArea = document.createElement("textarea");
+        chatWindow.appendChild(inputArea);
+
+        const chatButton = document.createElement("button");
+        chatButton.innerText =  "↑";
+        chatWindow.appendChild(chatButton);
 
         // New Conversations Button
         const newButton = document.createElement("button");
         newButton.innerText = "New Button";
         newButton.dataset.target = "new-conversation-modal";
-        newButton.addEventListener("click", this.openModal);
+        newButton.addEventListener("click", this.openModal.bind(this));
         sideBar.appendChild(newButton);
 
         // Conversations list.
@@ -291,10 +304,15 @@ class LCGLLM extends HTMLElement {
         // The close button for the modal.
         const closeNewConversationModalButton = document.createElement("button");
         closeNewConversationModalButton.innerText = "X";
-        closeNewConversationModalButton.addEventListener("click", this.closeModals);
+        closeNewConversationModalButton.addEventListener("click", this.closeModals.bind(this));
         newConversationModal.appendChild(closeNewConversationModalButton);
 
         // Setup the model options on new conversation modal.
+        const conversationTitle = document.createElement("input");
+        conversationTitle.placeholder = "e.g. A chat about Adrien's skills";
+        conversationTitle.required = true;
+        newConversationModal.appendChild(conversationTitle);
+
         const modelSelect = document.createElement("select");
         const modelNone = document.createElement("option");
         modelNone.innerText = "Select a model";
@@ -312,8 +330,30 @@ class LCGLLM extends HTMLElement {
         }
         newConversationModal.appendChild(modelSelect);
 
+        const selectLLMModelButton = document.createElement("button");
+        selectLLMModelButton.innerText = "Select";
+        selectLLMModelButton.addEventListener("click", this.createNewConversation.bind(this));
+
+        newConversationModal.appendChild(selectLLMModelButton);
+
         shadow.appendChild(newConversationModal);
         shadow.appendChild(container);
+    }
+
+    clearConversationWindow() {
+       const chatHistory = this.shawdowRoot.querySelector("#chat-window ul");
+       while (chatHistory.childNodes.length > 0) {
+            chatHistory.remove(chatHistory[0]);
+        }
+    }
+
+    createNewConversation() {
+        this.clearConversationWindow();
+    }
+
+    async buildConversation(uuid) {
+        const conversation = await this.getConversationFromIndexedDB();
+        this.clearConversationWindow();
     }
 }
 customElements.define("lcg-llm", LCGLLM);

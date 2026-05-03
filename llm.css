@@ -28,7 +28,7 @@
 
 /* Conversation area */
 :host > div > div:nth-child(2) {
-    flex: 6.5;
+    flex: 7;
     background-color: var(--bg-conversation-area);
     color: var(--fg-conversation-area);
     overflow-y: scroll;
@@ -46,5 +46,38 @@
     color: black;
     border: 1px solid black;
     border-radius: 1rem;
+    box-shadow: 5px 6px 10px;
+}
 
+:host > div.modal > button:first-child {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.25rem;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    font-weight: 700;
+    color:black;
+    border: none;
+    transition: color 0.3s ease-in-out;
+}
+
+:host > div.modal > button:first-child:hover {
+    color: #0cf !important;
+}
+
+:host > div.modal > select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: 700;
+    position: relative;
+    top: 2rem;
+}
+
+.hidden {
+    display: none !important;
 }

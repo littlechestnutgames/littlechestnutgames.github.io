@@ -434,46 +434,6 @@ header.collapse {
     }
 }
 
-#egg-container {
-    text-align:center;
-    font-weight: 700;
-}
-
-#egg-container > * {
-    padding-left: 0;
-}
-
-#egg-container > div > .egg-date {
-    display:inline-block;
-    padding-top: 4rem;
-}
-
-.egg {
-  width: 8rem;
-  height: 10rem;
-  background-color: white;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  border: 0.1rem solid black;
-  position: relative;
-  font-size:1rem;
-  color: black;
-  display: inline-block;
-  margin-inline:0.5rem;
-  margin-block: 0.25rem;
-}
-
-.bad-egg {
-    background-color: red;
-    color: white;
-}
-
-.good-egg {
-    background-color: green;
-    color: white;
-}
-
-
-
 form#ai-form {
     text-align: center;
 }
